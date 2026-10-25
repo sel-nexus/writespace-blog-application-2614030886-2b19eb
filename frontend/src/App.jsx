@@ -1,4 +1,4 @@
-/** Compose completed discovery, account-entry, and reading routes with local identity reads. */
+/** Compose completed discovery, account-entry, reading, and writing routes with local identity reads. */
 import { Routes, Route, useLocation } from 'react-router-dom';
 import PublicNavbar from './components/PublicNavbar';
 import Navbar from './components/Navbar';
@@ -10,6 +10,7 @@ import { getSession } from './utils/auth';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import ReadBlog from './pages/ReadBlog';
+import WriteBlog from './pages/WriteBlog';
 
 /**
  * Render discovery and a safe fallback with route-driven identity reads.
@@ -35,6 +36,14 @@ export default function App() {
         <Route
           path="/blog/:id"
           element={<ProtectedRoute session={session}><ReadBlog session={session} /></ProtectedRoute>}
+        />
+        <Route
+          path="/write"
+          element={<ProtectedRoute session={session}><WriteBlog session={session} /></ProtectedRoute>}
+        />
+        <Route
+          path="/edit/:id"
+          element={<ProtectedRoute session={session}><WriteBlog session={session} /></ProtectedRoute>}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>

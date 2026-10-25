@@ -1,9 +1,12 @@
 /** Resolve a protected post and render its complete content as escaped plain text. */
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, PencilSimple } from '@phosphor-icons/react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { ArrowLeft, PencilSimple, Trash } from '@phosphor-icons/react';
 import Avatar from '../components/Avatar';
-import { authorRole, canEditPost } from '../components/BlogCard';
+import { authorRole } from '../components/BlogCard';
+import { canEditPost, deletePost } from '../utils/posts';
+import { getSession } from '../utils/auth';
 import { getPosts } from '../utils/storage';
 import { buttonStyles, focusRing, formatDate, headingFont, isPost } from '../utils/ui';
 
@@ -14,16 +17,31 @@ import { buttonStyles, focusRing, formatDate, headingFont, isPost } from '../uti
  * Returns:
  *   JSX.Element: Full escaped text, attribution, and authorized edit link, or not found.
  * Notes:
- *   Read operations never write; deletion belongs to the later writing workflow.
+ *   Reads never write; confirmed deletion rechecks current identity and persisted posts.
  */
 export default function ReadBlog({ session = null }) {
   const { id } = useParams();
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
   const post = getPosts().find(row => isPost(row) && row.id === id);
+
+  /**
+   * Confirm an explicit deletion and recheck the current storage-backed policy.
+   * Returns:
+   *   void: Navigate only after persistence, retaining failure feedback otherwise.
+   */
+  function remove() {
+    if (window.confirm('Delete this post? This cannot be undone.') !== true) return;
+    const result = deletePost(id, getSession(), true);
+    if (result.ok) navigate(result.navigateTo);
+    else setError(result.error.message);
+  }
   return (
     <main className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
       <Link to="/blogs" className={`inline-flex min-h-11 items-center gap-2 rounded text-indigo-700 ${focusRing}`}>
         <ArrowLeft size={20} aria-hidden="true" /> Back to All Blogs
       </Link>
+      {error && <p role="alert" className="mt-6 text-sm text-red-700">{error}</p>}
       {post ? (
         <article className="mx-auto mt-8 max-w-3xl rounded-xl bg-white p-6 sm:p-10">
           <h1 className={`break-words text-4xl leading-tight text-slate-900 sm:text-5xl ${headingFont}`}>
@@ -40,9 +58,14 @@ export default function ReadBlog({ session = null }) {
             {post.content}
           </div>
           {canEditPost(post, session) && (
-            <Link to={`/edit/${encodeURIComponent(post.id)}`} className={`mt-8 ${buttonStyles.secondary}`}>
-              <PencilSimple size={20} aria-hidden="true" /> Edit
-            </Link>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to={`/edit/${encodeURIComponent(post.id)}`} className={buttonStyles.secondary}>
+                <PencilSimple size={20} aria-hidden="true" /> Edit
+              </Link>
+              <button type="button" onClick={remove} className={buttonStyles.destructive}>
+                <Trash size={20} aria-hidden="true" /> Delete
+              </button>
+            </div>
           )}
         </article>
       ) : (

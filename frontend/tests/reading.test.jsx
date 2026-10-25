@@ -179,7 +179,11 @@ describe('author roles and edit presentation', () => {
       mount(path);
       if (allowed) expect(screen.getByRole('link', { name: 'Edit' })).toHaveAttribute('href', '/edit/p1');
       else expect(screen.queryByRole('link', { name: 'Edit' })).not.toBeInTheDocument();
-      expect(screen.queryByRole('button', { name: /Delete/i })).not.toBeInTheDocument();
+      if (path === '/blog/p1' && allowed) {
+        expect(screen.getByRole('button', { name: 'Delete' })).toBeVisible();
+      } else {
+        expect(screen.queryByRole('button', { name: 'Delete' })).not.toBeInTheDocument();
+      }
       expect(screen.queryByRole('link', { name: /Delete/i })).not.toBeInTheDocument();
     });
   }

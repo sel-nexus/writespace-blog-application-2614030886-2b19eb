@@ -6,8 +6,10 @@ import Avatar from './Avatar';
 import { DEFAULT_ADMIN } from '../utils/accountEntry';
 import { getUsers } from '../utils/storage';
 import {
-  excerpt, focusRing, formatDate, headingFont, isPost, isSession, postAccents,
+  excerpt, focusRing, formatDate, headingFont, isPost, postAccents,
 } from '../utils/ui';
+import { canEditPost } from '../utils/posts';
+export { canEditPost } from '../utils/posts';
 
 /**
  * Resolve an author's visual role without copying account credentials.
@@ -20,21 +22,6 @@ export function authorRole(authorId) {
   if (authorId === DEFAULT_ADMIN.userId) return 'admin';
   const account = getUsers().find(row => row && typeof row === 'object' && row.id === authorId);
   return account?.role === 'admin' ? 'admin' : 'user';
-}
-
-/**
- * Check whether the local actor may see an edit destination.
- * Args:
- *   post (unknown): Candidate publication record.
- *   session (unknown): Candidate local identity.
- * Returns:
- *   boolean: True only for a valid post and an Admin or its owner.
- * Notes:
- *   This presentation rule is not trusted authorization and performs no writes.
- */
-export function canEditPost(post, session) {
-  return isPost(post) && isSession(session)
-    && (session.role === 'admin' || post.authorId === session.userId);
 }
 
 /**
