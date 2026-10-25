@@ -70,15 +70,15 @@ describe('public discovery', () => {
 
   it.each([
     ['Start Reading', '/login'], ['Get Started Free', '/register'],
-  ])('navigates %s only after activation and returns through the real fallback', async (name, href) => {
+  ])('navigates %s only after activation and returns through the public logo', async (name, href) => {
     const user = userEvent.setup();
     mount();
     const link = screen.getByRole('link', { name });
     expect(link).toHaveAttribute('href', href);
     expect(screen.queryByRole('heading', { name: 'Page not found' })).not.toBeInTheDocument();
     await user.click(link);
-    expect(screen.getByRole('heading', { name: 'Page not found' })).toBeVisible();
-    await user.click(screen.getByRole('link', { name: 'Back to Home' }));
+    expect(screen.getByRole('textbox', { name: 'Username' })).toBeVisible();
+    await user.click(within(screen.getByRole('navigation', { name: 'Public navigation' })).getByRole('link', { name: 'WriteSpace' }));
     expect(screen.getByRole('heading', { name: 'WriteSpace' })).toBeVisible();
   });
 
@@ -93,12 +93,12 @@ describe('public discovery', () => {
     const nav = screen.getByRole('navigation', { name: 'Public navigation' });
     await user.click(within(nav).getByRole('link', { name: 'Login' }));
     expect(screen.getByRole('button', { name: 'Open menu' })).toHaveAttribute('aria-expanded', 'false');
-    await user.click(screen.getByRole('link', { name: 'Back to Home' }));
+    await user.click(within(nav).getByRole('link', { name: 'WriteSpace' }));
     await user.click(screen.getByRole('button', { name: 'Open menu' }));
     await user.click(screen.getByRole('button', { name: 'Close menu' }));
     expect(screen.getByRole('button', { name: 'Open menu' })).toHaveAttribute('aria-expanded', 'false');
     await user.click(within(nav).getByRole('link', { name: 'Get Started' }));
-    expect(screen.getByRole('heading', { name: 'Page not found' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Display name' })).toBeVisible();
   });
 
   it.each(['admin', 'user'])('uses %s dashboard and signed-in reading destinations', async role => {
@@ -118,7 +118,7 @@ describe('public discovery', () => {
     expect(JSON.parse(localStorage.getItem('writespace_session'))).toEqual(identity);
     localStorage.removeItem('writespace_session');
     await user.click(screen.getByRole('link', { name: 'Back to Home' }));
-    expect(within(nav).getByRole('link', { name: 'Login' })).toBeVisible();
+    expect(within(screen.getByRole('navigation', { name: 'Public navigation' })).getByRole('link', { name: 'Login' })).toBeVisible();
   });
 
   it.each([

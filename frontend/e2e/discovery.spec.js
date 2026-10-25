@@ -98,8 +98,8 @@ test('projects at most three newest real previews and preserves storage through 
   await capturePreflight(page, testInfo, 'populated');
   await expect(latest.getByRole('link').first()).toHaveAttribute('href', '/blog/newest');
   await latest.getByRole('link').first().click();
-  // Discovery activates the real detail URL; the next auth slice adds its guest login redirect.
-  await expect(page).toHaveURL(/\/(?:blog\/newest|login)$/);
+  // The protected reading route must send a guest to account entry.
+  await expect(page).toHaveURL(/\/login$/);
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('writespace_posts')));
   expect(stored).toEqual(posts);
   await page.getByRole('navigation', { name: 'Public navigation' }).getByRole('link', { name: 'WriteSpace' }).click();
