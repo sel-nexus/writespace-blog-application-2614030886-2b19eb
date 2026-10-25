@@ -5,10 +5,12 @@ import { getSession, setSession } from '../src/utils/auth';
 import { getUsers, saveUsers } from '../src/utils/storage';
 
 const id = '8fc787c4-78da-4f5e-9d74-93e9274892e8';
+const nextId = '8fc787c4-78da-4f5e-9d74-93e9274892e9';
+const storedId = '8fc787c4-78da-4f5e-9d74-93e9274892e7';
 const input = { displayName: 'Mina', username: 'mina', password: 'demo-only', confirmPassword: 'demo-only' };
 const previous = { userId: 'old', username: 'old', displayName: 'Old', role: 'user' };
-const user = { id, displayName: 'Mina', username: 'mina', password: 'demo-only', role: 'user', createdAt: '2026-01-15T12:00:00.000Z' };
-beforeEach(() => { vi.spyOn(crypto, 'randomUUID').mockReturnValue(id); });
+const user = { id: storedId, displayName: 'Mina', username: 'mina', password: 'demo-only', role: 'user', createdAt: '2026-01-15T12:00:00.000Z' };
+beforeEach(() => { vi.spyOn(crypto, 'randomUUID').mockReturnValue(id).mockReturnValueOnce(id).mockReturnValueOnce(nextId); });
 
 describe('registerUser', () => {
   it.each(Object.keys(input))('rejects each required %s type, missing value and whitespace without writes', field => {
@@ -55,6 +57,8 @@ describe('registerUser', () => {
     expect(registerUser({ ...input, username: 'Mina' }).ok).toBe(true);
     expect(registerUser({ ...input, username: 'Admin' }).ok).toBe(true);
     expect(getUsers().map(row => row.username)).toEqual(['mina', 'Mina', 'Admin']);
+    expect(getUsers().map(row => row.id)).toEqual([storedId, id, nextId]);
+    expect(new Set(getUsers().map(row => row.id)).size).toBe(3);
     expect(getSession()).toMatchObject({ username: 'Admin', role: 'user' });
   });
   it('creates a complete UUID/ISO regular user, preserves text, appends, then rereads exact session', () => {
@@ -68,9 +72,53 @@ describe('registerUser', () => {
       expect(getUsers()).toEqual([user, {
         id, displayName: ' New ', username: ' new ', password: ' Demo ', role: 'user', createdAt: '2026-03-04T05:06:07.000Z',
       }]);
+      expect(getUsers().map(row => row.id)).toEqual([storedId, id]);
+      expect(new Set(getUsers().map(row => row.id)).size).toBe(2);
       expect(JSON.parse(localStorage.getItem('writespace_session'))).toEqual(expected);
       expect(getSession()).toEqual(expected);
     } finally { vi.useRealTimers(); }
+  });
+  it.each([
+    ['very-long nonblank text', { displayName: ` Name-${'N'.repeat(16384)} `, username: ` User-${'U'.repeat(16384)} `, password: ` Secret-${'P'.repeat(16384)} ` }],
+    ['XSS-like text', { displayName: '<script>window.accountXss = true</script><img src=x onerror="window.accountXss = true">', username: '\"><img src=x onerror="window.accountXss = true"><script>window.accountXss = true</script>', password: 'Never-render-registration-secret' }],
+  ])('preserves %s exactly while leaving other accounts and unrelated state untouched', (_label, values) => {
+    const others = [null, { legacy: true }, user];
+    saveUsers(others); setSession(previous);
+    const posts = '[{"id":"untouched-post","content":"Keep exact bytes"}]';
+    localStorage.setItem('writespace_posts', posts);
+    localStorage.setItem('unrelated-setting', 'unchanged');
+    vi.useFakeTimers(); vi.setSystemTime(new Date('2026-03-04T05:06:07.000Z'));
+    try {
+      const expected = { id, ...values, role: 'user', createdAt: '2026-03-04T05:06:07.000Z' };
+      const session = { userId: id, displayName: values.displayName, username: values.username, role: 'user' };
+      expect(registerUser({ ...values, confirmPassword: values.password })).toEqual({
+        ok: true, value: session, navigateTo: '/blogs', accountWritten: true, sessionWritten: true,
+      });
+      expect(JSON.parse(localStorage.getItem('writespace_users'))).toEqual([...others, expected]);
+      expect(getUsers()).toEqual([...others, expected]);
+      expect(new Set(getUsers().filter(row => row?.id).map(row => row.id)).size).toBe(2);
+      expect(JSON.parse(localStorage.getItem('writespace_session'))).toEqual(session);
+      expect(getSession()).toEqual(session);
+      expect(localStorage.getItem('writespace_session')).not.toContain(values.password);
+      expect(localStorage.getItem('writespace_posts')).toBe(posts);
+      expect(localStorage.getItem('unrelated-setting')).toBe('unchanged');
+    } finally { vi.useRealTimers(); }
+  });
+  it('rejects a generated ID collision before account/session writes without alternate generation', () => {
+    saveUsers([null, { legacy: true }, user]); setSession(previous);
+    localStorage.setItem('writespace_posts', '[]');
+    const before = { ...localStorage };
+    const uuid = vi.spyOn(crypto, 'randomUUID').mockReset().mockReturnValue(storedId);
+    const write = vi.spyOn(Storage.prototype, 'setItem');
+    expect(registerUser({ ...input, username: 'new' })).toEqual({
+      ok: false, error: { code: 'DUPLICATE_ID', message: 'Could not generate a unique account ID. Please try again.' },
+      accountWritten: false, sessionWritten: false, navigateTo: null,
+    });
+    expect(uuid).toHaveBeenCalledOnce();
+    expect(write).not.toHaveBeenCalled();
+    expect({ ...localStorage }).toEqual(before);
+    expect(getUsers()).toEqual([null, { legacy: true }, user]);
+    expect(getSession()).toEqual(previous);
   });
   it('uses browser-generated UUIDs without a fallback', () => {
     vi.restoreAllMocks();
@@ -115,7 +163,7 @@ describe('registerUser', () => {
     expect(keys).toEqual(['writespace_users', 'writespace_session']);
     expect(result).toMatchObject({ ok: false, accountWritten: true, sessionWritten: false, navigateTo: null });
     expect(result.error.message).toMatch(/account may exist.*sign-in did not complete.*Sign in later/);
-    expect(getUsers()).toEqual([{ ...user, createdAt: getUsers()[0].createdAt }]);
+    expect(getUsers()).toEqual([{ ...user, id, createdAt: getUsers()[0].createdAt }]);
     expect(getSession()).toEqual(previous);
     vi.restoreAllMocks();
     expect(login('mina', 'demo-only').ok).toBe(true);
@@ -154,7 +202,7 @@ describe('login', () => {
     const result = login('mina', 'demo-only');
     expect(result.ok).toBe(true);
     expect(result.navigateTo).toBe(role === 'admin' ? '/admin' : '/blogs');
-    expect(getSession()).toEqual({ userId: id, username: 'mina', displayName: 'Mina', role });
+    expect(getSession()).toEqual({ userId: storedId, username: 'mina', displayName: 'Mina', role });
     expect(JSON.parse(localStorage.getItem('writespace_session'))).not.toHaveProperty('password');
   });
   it.each([

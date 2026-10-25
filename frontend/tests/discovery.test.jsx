@@ -213,6 +213,42 @@ describe('public discovery', () => {
     expect(document.querySelectorAll('svg')).toHaveLength(2);
   });
 
+  it('defaults omitted roles to the user cue for both avatar exports', () => {
+    render(<div><Avatar />{getAvatar()}</div>);
+    const avatars = screen.getAllByRole('img', { name: 'User avatar' });
+    expect(avatars).toHaveLength(2);
+    for (const avatar of avatars) {
+      expect(avatar).toHaveClass('bg-indigo-500');
+      expect(avatar.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
+    }
+    expect(screen.queryByRole('img', { name: 'Admin avatar' })).not.toBeInTheDocument();
+  });
+
+  it('falls back to the user cue for unsupported roles and captures only their PropTypes warnings', () => {
+    const expectedWarnings = ['owner', 'moderator'].map(role =>
+      `Invalid prop \`role\` of value \`${role}\` supplied to \`Avatar\`, expected one of ["admin","user"].`);
+    const warning = vi.spyOn(console, 'error').mockImplementation((...args) => {
+      if (args[0] !== 'Warning: Failed %s type: %s%s'
+        || args[1] !== 'prop' || !expectedWarnings.includes(args[2])) {
+        throw new Error(`Unexpected console error: ${args.join(' ')}`);
+      }
+    });
+    try {
+      render(<div><Avatar role="owner" />{getAvatar('moderator')}</div>);
+      const avatars = screen.getAllByRole('img', { name: 'User avatar' });
+      expect(avatars).toHaveLength(2);
+      for (const avatar of avatars) {
+        expect(avatar).toHaveClass('bg-indigo-500');
+        expect(avatar.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
+      }
+      expect(screen.queryByRole('img', { name: 'Admin avatar' })).not.toBeInTheDocument();
+      expect(warning).toHaveBeenCalledTimes(2);
+      expect(warning.mock.calls.map(args => args[2])).toEqual(expectedWarnings);
+    } finally {
+      warning.mockRestore();
+    }
+  });
+
   it('uses a safe fallback for unmatched paths', async () => {
     mount('/unknown/nested');
     await userEvent.setup().click(screen.getByRole('link', { name: 'Back to Home' }));

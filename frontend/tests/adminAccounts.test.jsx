@@ -5,7 +5,10 @@ import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../src/App';
-import { DEFAULT_ADMIN } from '../src/utils/accountEntry';
+import { DEFAULT_ADMIN, registerUser } from '../src/utils/accountEntry';
+import { adminCreateUser } from '../src/utils/adminUsers';
+import Navbar from '../src/components/Navbar';
+import { UserRow } from '../src/components/UserRow';
 import { getSession, setSession } from '../src/utils/auth';
 import { getUsers, saveUsers } from '../src/utils/storage';
 const seen = vi.hoisted(() => []);
@@ -78,6 +81,77 @@ describe('listing and access', () => {
     expect(localStorage.getItem('writespace_users')).toBe(raw); expect(write).not.toHaveBeenCalled();
     expect(within(screen.getByRole('table')).getAllByRole('row')).toHaveLength(2);
   });
+});
+
+describe('literal rendering of newly persisted account text', () => {
+  const cases = [
+    ['very-long nonblank text', { displayName: ` Name-${'N'.repeat(16384)} `, username: ` User-${'U'.repeat(16384)} `, password: ` Secret-${'P'.repeat(16384)} ` }],
+    ['XSS-like text', { displayName: '<script>window.accountXss = true</script><img src=x onerror="window.accountXss = true">', username: '\"><img src=x onerror="window.accountXss = true"><script>window.accountXss = true</script>', password: 'Never-render-created-secret' }],
+  ];
+  for (const workflow of ['registration', 'Admin creates user', 'Admin creates admin']) {
+    it.each(cases)(`${workflow}: preserves and renders %s safely in UserRow and Navbar`, (_label, values) => {
+      saveUsers([record]); setSession(DEFAULT_ADMIN);
+      localStorage.setItem('writespace_session', JSON.stringify({ ...getSession(),
+        password: 'Never-render-session-password', accessToken: 'Never-render-session-token' }));
+      localStorage.setItem('writespace_posts', '[{"id":"keep","content":"Unrelated text"}]');
+      localStorage.setItem('session-credentials', 'Never-render-session-token');
+      const postsBefore = localStorage.getItem('writespace_posts');
+      const sessionBefore = localStorage.getItem('writespace_session');
+      const role = workflow === 'Admin creates admin' ? 'admin' : 'user';
+      const result = workflow === 'registration'
+        ? registerUser({ ...values, confirmPassword: values.password })
+        : adminCreateUser({ ...values, role }, getSession());
+      expect(result.ok).toBe(true);
+      const saved = getUsers()[1];
+      expect(saved.id).not.toBe(record.id);
+      expect(saved.id).toMatch(/^[\da-f]{8}-[\da-f]{4}-4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i);
+      expect(new Date(saved.createdAt).toISOString()).toBe(saved.createdAt);
+      expect(JSON.parse(localStorage.getItem('writespace_users'))).toEqual([
+        record, { id: saved.id, ...values, role, createdAt: saved.createdAt },
+      ]);
+      const identity = { userId: saved.id, username: saved.username, displayName: saved.displayName, role };
+      if (workflow === 'registration') {
+        expect(getSession()).toEqual(identity);
+        expect(JSON.parse(localStorage.getItem('writespace_session'))).toEqual(identity);
+      } else {
+        expect(localStorage.getItem('writespace_session')).toBe(sessionBefore);
+        expect(getSession()).toEqual(DEFAULT_ADMIN);
+      }
+      const publicAccount = { id: saved.id, displayName: saved.displayName, username: saved.username, role, createdAt: saved.createdAt };
+      expect(Object.keys(publicAccount).sort()).toEqual(['createdAt', 'displayName', 'id', 'role', 'username']);
+      const storageBeforeRender = { ...localStorage };
+      const { container } = render(<MemoryRouter initialEntries={['/blogs']}>
+        <Navbar session={identity} />
+        <table><tbody><UserRow account={publicAccount} onDelete={() => {}} /></tbody></table>
+        <ul aria-label="Created account cards"><UserRow account={publicAccount} mobile onDelete={() => {}} /></ul>
+      </MemoryRouter>);
+      const navbar = screen.getByRole('navigation', { name: 'Account navigation' });
+      const accountButton = within(navbar).getByRole('button', { name: /^Account for / });
+      expect(accountButton.querySelector('span.font-medium').textContent).toBe(values.displayName);
+      expect(accountButton).toHaveAttribute('aria-label', `Account for ${values.displayName}`);
+      for (const scope of [screen.getByRole('table'), screen.getByRole('list', { name: 'Created account cards' })]) {
+        const name = scope.querySelector('th[scope="row"], h3');
+        const username = scope.querySelector('tr > td:nth-child(3), dl > dd');
+        expect(name.textContent).toBe(values.displayName);
+        expect(username.textContent).toBe(values.username);
+        expect(within(scope).getByText(role === 'admin' ? 'Admin' : 'User', { exact: true })).toBeInTheDocument();
+        expect(within(scope).getByRole('img', { name: role === 'admin' ? 'Admin avatar' : 'User avatar' })).toBeInTheDocument();
+        const deletion = within(scope).getByRole('button');
+        expect(deletion).toBeEnabled();
+        expect(deletion).toHaveAttribute('aria-label', `Delete ${values.username}`);
+      }
+      expect(container.querySelectorAll('script, img, iframe')).toHaveLength(0);
+      expect([...container.querySelectorAll('*')].flatMap(node => [...node.attributes])
+        .filter(attribute => /^on/i.test(attribute.name))).toEqual([]);
+      for (const secret of [values.password, record.password, 'Never-render-session-password', 'Never-render-session-token']) {
+        expect(container.textContent).not.toContain(secret);
+        expect(container.innerHTML).not.toContain(secret);
+      }
+      expect({ ...localStorage }).toEqual(storageBeforeRender);
+      expect(localStorage.getItem('writespace_posts')).toBe(postsBefore);
+      expect(localStorage.getItem('session-credentials')).toBe('Never-render-session-token');
+    });
+  }
 });
 
 describe('creation form', () => {

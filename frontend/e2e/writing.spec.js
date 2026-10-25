@@ -133,6 +133,75 @@ test('register, write, read, edit-cancel, edit-save and confirmed delete persist
   await expect(page.getByRole('heading', { name: preserved.title, exact: true })).toBeVisible();
 });
 
+test('empty Home Write a Blog CTA creates a persisted post and collection-card Edit saves its revision through clicks', async ({ page }) => {
+  const identity = { userId: 'cta-writer', username: 'cta-writer', displayName: 'CTA Writer', role: 'user' };
+  await page.addInitScript(session => {
+    localStorage.setItem('writespace_posts', JSON.stringify([]));
+    localStorage.setItem('writespace_session', JSON.stringify(session));
+  }, identity);
+  await page.goto('/blogs');
+  await expect(page.getByRole('heading', { level: 1, name: 'All Blogs', exact: true })).toBeVisible();
+  const initial = { posts: [], users: null, session: identity };
+  expect(await records(page)).toEqual(initial);
+  const empty = page.getByRole('region', { name: 'Empty collection', exact: true });
+  await expect(empty).toContainText('No blogs yet. Be the first to write one!');
+  await empty.getByRole('link', { name: 'Write a Blog', exact: true }).click();
+  await expect(page).toHaveURL(/\/write$/);
+  await expect(page.getByLabel('Title', { exact: true })).toHaveValue('');
+  await expect(page.getByLabel('Content', { exact: true })).toHaveValue('');
+  await expect(page.getByRole('status')).toHaveText('0 characters');
+  const body = 'Created from the empty CTA\nPersist this second line';
+  await page.getByLabel('Title', { exact: true }).fill('Empty CTA story');
+  await page.getByLabel('Content', { exact: true }).fill(body);
+  expect(await records(page)).toEqual(initial);
+  await page.getByRole('button', { name: 'Publish Blog', exact: true }).click();
+  await expect(page.getByRole('heading', { level: 1, name: 'Empty CTA story', exact: true })).toBeVisible();
+  const created = await records(page);
+  expect(created.posts).toHaveLength(1);
+  const post = created.posts[0];
+  expect(post).toEqual({
+    id: post.id, title: 'Empty CTA story', content: body, createdAt: post.createdAt,
+    authorId: identity.userId, authorName: identity.displayName,
+  });
+  expect(post.id).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
+  expect(new Date(post.createdAt).toISOString()).toBe(post.createdAt);
+  expect(created).toEqual({ ...initial, posts: [post] });
+  await expect(page).toHaveURL(new RegExp(`/blog/${post.id}$`));
+  await expect(page.locator('.whitespace-pre-wrap')).toHaveText(body);
+
+  await openNavigation(page);
+  await page.getByRole('link', { name: 'All Blogs', exact: true }).click();
+  await expect(page).toHaveURL(/\/blogs$/);
+  const card = page.getByRole('article').filter({
+    has: page.getByRole('heading', { name: post.title, exact: true }),
+  });
+  await expect(card).toHaveCount(1);
+  expect(await records(page)).toEqual(created);
+  await card.getByRole('link', { name: 'Edit', exact: true }).click();
+  await expect(page).toHaveURL(new RegExp(`/edit/${post.id}$`));
+  await expect(page.getByLabel('Title', { exact: true })).toHaveValue(post.title);
+  await expect(page.getByLabel('Content', { exact: true })).toHaveValue(post.content);
+  await expect(page.getByRole('status')).toHaveText(`${post.content.length} characters`);
+  const revised = { ...post, title: 'Card-edited CTA story', content: 'Revised through the card\nSaved second line' };
+  await page.getByLabel('Title', { exact: true }).fill(revised.title);
+  await page.getByLabel('Content', { exact: true }).fill(revised.content);
+  expect(await records(page)).toEqual(created);
+  await page.getByRole('button', { name: 'Save Changes', exact: true }).click();
+  await expect(page).toHaveURL(new RegExp(`/blog/${post.id}$`));
+  await expect(page.getByRole('heading', { level: 1, name: revised.title, exact: true })).toBeVisible();
+  await expect(page.locator('.whitespace-pre-wrap')).toHaveText(revised.content);
+  const edited = { ...initial, posts: [revised] };
+  expect(await records(page)).toEqual(edited);
+  await page.getByRole('link', { name: 'Back to All Blogs', exact: true }).click();
+  await expect(page).toHaveURL(/\/blogs$/);
+  await page.getByRole('article').filter({ has: page.getByRole('heading', { name: revised.title, exact: true }) })
+    .getByRole('link', { name: /Read post/ }).click();
+  await expect(page).toHaveURL(new RegExp(`/blog/${post.id}$`));
+  await expect(page.getByRole('heading', { level: 1, name: revised.title, exact: true })).toBeVisible();
+  await expect(page.locator('.whitespace-pre-wrap')).toHaveText(revised.content);
+  expect(await records(page)).toEqual(edited);
+});
+
 test('direct other-owner edit is denied without persistence changes and offers no detail delete', async ({ page }) => {
   const identity = { userId: 'denied-user', username: 'denied-user', displayName: 'Denied Writer', role: 'user' };
   const expected = { posts: [preserved, null, { id: 'raw-row' }], users: null, session: identity };

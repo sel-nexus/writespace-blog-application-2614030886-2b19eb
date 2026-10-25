@@ -96,6 +96,9 @@ export function registerUser(input) {
   } catch {
     return failure('UUID_UNAVAILABLE', 'This browser cannot create an account. Use a browser with UUID support.');
   }
+  if (users.some(row => row?.id === user.id)) {
+    return failure('DUPLICATE_ID', 'Could not generate a unique account ID. Please try again.');
+  }
   if (!saveUsers([...users, user])) {
     return failure('STORAGE_WRITE_FAILED', 'Could not save your account in this browser. Please try again.');
   }

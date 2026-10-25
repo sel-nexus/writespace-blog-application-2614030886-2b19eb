@@ -128,7 +128,8 @@ export function editPost(id, patch, session, deps = {}) {
 }
 
 /**
- * Delete an authorized exact-id post only after explicit boolean confirmation.
+ * Delete an authorized, unambiguous exact-id post after explicit boolean confirmation.
+ * Reject duplicate IDs, including malformed rows, without writing or removing any row.
  * Args:
  *   id (unknown): Exact stored identifier.
  *   session (unknown): Current public identity.
@@ -144,6 +145,9 @@ export function deletePost(id, session, confirmed, deps = {}) {
   const post = rows.find(row => isPost(row) && row.id === id);
   if (!post) return failure('NOT_FOUND', 'Post not found');
   if (!canEditPost(post, session)) return failure('UNAUTHORIZED', 'You cannot change this post.');
+  if (rows.filter(row => row?.id === id).length > 1) {
+    return failure('AMBIGUOUS_ID', 'Cannot delete this post because its ID is duplicated. No posts were removed.');
+  }
   const failed = persist(rows.filter(row => row?.id !== id), deps.savePosts ?? savePosts);
   return failed ?? { ok: true, value: null, persisted: true, removedId: id, navigateTo: '/blogs' };
 }

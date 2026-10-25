@@ -167,6 +167,25 @@ describe('exact resolution and owner/Admin mutations', () => {
     expect(editPost('p1', input, owner).ok).toBe(true);
     expect(getPosts()).toEqual([{ id: 'p1' }, { ...original, ...input }, duplicate, ...unrelated]);
   });
+  it('edit preserves a differently owned duplicate when updating the first valid match', () => {
+    const duplicate = { ...original, title: 'Other owner story', authorId: other.userId };
+    savePosts([original, duplicate, ...unrelated]);
+    expect(editPost('p1', input, owner)).toMatchObject({ ok: true, value: { ...original, ...input } });
+    expect(getPosts()).toEqual([{ ...original, ...input }, duplicate, ...unrelated]);
+  });
+  it.each([owner, DEFAULT_ADMIN])('delete rejects differently owned same-ID rows for %j without writing', session => {
+    const duplicate = { ...original, title: 'Other owner story', authorId: other.userId };
+    savePosts([original, duplicate, ...unrelated]);
+    rejected(() => deletePost('p1', session, true), 'AMBIGUOUS_ID');
+  });
+  it.each([
+    { id: 'p1' },
+    { ...original, createdAt: 'bad' },
+    { ...original, authorId: null },
+  ].map(row => [row]))('delete rejects malformed same-ID row %j and preserves every raw row', duplicate => {
+    savePosts([duplicate, original, ...unrelated]);
+    rejected(() => deletePost('p1', owner, true), 'AMBIGUOUS_ID');
+  });
   it('encodes edit destination without normalizing the exact stored id', () => {
     savePosts([{ ...original, id: 'a/b ?' }, ...unrelated]);
     const result = editPost('a/b ?', input, owner);

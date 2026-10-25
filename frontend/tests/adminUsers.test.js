@@ -55,6 +55,36 @@ describe('Admin creation', () => {
     expect(getSession()).toEqual(DEFAULT_ADMIN);
     expect(getUsers().some(row => row?.id === DEFAULT_ADMIN.userId)).toBe(false);
   });
+  it.each(['user', 'admin'])('preserves very-long and XSS-like fields exactly for %s without unrelated changes', role => {
+    const others = [null, { legacy: true }, { ...account, id: 'older', username: 'Older' }];
+    saveUsers(others); setSession(DEFAULT_ADMIN);
+    localStorage.setItem('writespace_posts', '[{"id":"untouched","content":"Keep exact bytes"}]');
+    localStorage.setItem('unrelated-setting', 'unchanged');
+    const sessionBefore = localStorage.getItem('writespace_session');
+    const postsBefore = localStorage.getItem('writespace_posts');
+    const values = [
+      { displayName: ` Name-${'N'.repeat(16384)} `, username: ` User-${'U'.repeat(16384)} `, password: ` Secret-${'P'.repeat(16384)} ` },
+      { displayName: '<script>window.accountXss = true</script><img src=x onerror="window.accountXss = true">', username: '\"><img src=x onerror="window.accountXss = true"><script>window.accountXss = true</script>', password: 'Never-render-admin-secret' },
+    ];
+    const expected = [...others];
+    for (const fields of values) {
+      const result = adminCreateUser({ ...fields, role }, getSession());
+      expect(result.ok).toBe(true);
+      const saved = result.value;
+      expect(saved.id).toMatch(/^[\da-f]{8}-[\da-f]{4}-4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i);
+      expect(new Date(saved.createdAt).toISOString()).toBe(saved.createdAt);
+      const exact = { id: saved.id, ...fields, role, createdAt: saved.createdAt };
+      expect(result).toEqual({ ok: true, value: exact });
+      expected.push(exact);
+      expect(JSON.parse(localStorage.getItem('writespace_users'))).toEqual(expected);
+      expect(getUsers()).toEqual(expected);
+      expect(new Set(expected.filter(row => row?.id).map(row => row.id)).size).toBe(expected.length - 2);
+      expect(localStorage.getItem('writespace_session')).toBe(sessionBefore);
+      expect(getSession()).toEqual(DEFAULT_ADMIN);
+      expect(localStorage.getItem('writespace_posts')).toBe(postsBefore);
+      expect(localStorage.getItem('unrelated-setting')).toBe('unchanged');
+    }
+  });
   it.each(['displayName', 'username', 'password'])('rejects all invalid %s values', field => {
     for (const value of badValues) rejected(() => adminCreateUser({ ...input, [field]: value }, DEFAULT_ADMIN), 'INVALID_INPUT');
   });

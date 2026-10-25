@@ -3,8 +3,9 @@ import { StrictMode } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
+import { Link, MemoryRouter, Route, Routes } from 'react-router-dom';
 import App from '../src/App';
+import WriteBlog from '../src/pages/WriteBlog';
 import { DEFAULT_ADMIN } from '../src/utils/accountEntry';
 import { getPosts, savePosts } from '../src/utils/storage';
 import { setSession } from '../src/utils/auth';
@@ -140,6 +141,88 @@ describe('writing form', () => {
 });
 
 describe('edit form and route gates', () => {
+  it.each(['required fields', 'save failure'])('resets %s, prefill and counter across same-instance edit/edit/write links', async failure => {
+    const second = { ...remaining.at(-1), content: 'Different second post body\nWith another line' };
+    const rows = [original, ...remaining.slice(0, -1), second];
+    savePosts(rows);
+    setSession(DEFAULT_ADMIN);
+    const raw = localStorage.getItem('writespace_posts');
+    const identity = localStorage.getItem('writespace_session');
+    const users = localStorage.getItem('writespace_users');
+    const write = vi.spyOn(Storage.prototype, 'setItem');
+    const remove = vi.spyOn(Storage.prototype, 'removeItem');
+    const actor = userEvent.setup();
+    render(
+      <StrictMode>
+        <MemoryRouter initialEntries={['/edit/p1']}>
+          <nav aria-label="Writing test routes">
+            <Link to="/edit/p2">Edit second post</Link>
+            <Link to="/write">Start blank post</Link>
+          </nav>
+          <Routes>
+            {/* One route element keeps WriteBlog mounted as the id changes or disappears. */}
+            <Route path="/:mode/:id?" element={<WriteBlog session={DEFAULT_ADMIN} />} />
+          </Routes>
+        </MemoryRouter>
+      </StrictMode>,
+    );
+    const title = screen.getByRole('textbox', { name: 'Title', exact: true });
+    const content = screen.getByRole('textbox', { name: 'Content', exact: true });
+
+    /** Check both reset state and retained DOM identity, ruling out a remounted form. */
+    function resetState(post) {
+      expect(screen.getByRole('textbox', { name: 'Title', exact: true })).toBe(title);
+      expect(screen.getByRole('textbox', { name: 'Content', exact: true })).toBe(content);
+      expect(title).toHaveValue(post?.title ?? '');
+      expect(content).toHaveValue(post?.content ?? '');
+      expect(screen.getByRole('status')).toHaveTextContent(`${post?.content.length ?? 0} characters`);
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+      expect(title).toHaveAttribute('aria-invalid', 'false');
+      expect(content).toHaveAttribute('aria-invalid', 'false');
+      expect(title).not.toHaveAttribute('aria-describedby');
+      expect(content).toHaveAttribute('aria-describedby', 'content-count');
+      expect(localStorage.getItem('writespace_posts')).toBe(raw);
+      expect(localStorage.getItem('writespace_session')).toBe(identity);
+      expect(localStorage.getItem('writespace_users')).toBe(users);
+      expect(getPosts()).toEqual(rows);
+    }
+
+    /** Dirty the current form and produce the selected error without a durable write. */
+    async function dirtyWithError() {
+      await actor.clear(title);
+      await actor.clear(content);
+      if (failure === 'save failure') {
+        await actor.type(title, 'Unsaved title');
+        await actor.type(content, 'Unsaved body\nDo not carry forward');
+        write.mockImplementation(() => { throw new Error('Quota'); });
+      }
+      await actor.click(screen.getByRole('button', { name: 'Save Changes', exact: true }));
+      if (failure === 'required fields') {
+        expect(screen.getAllByRole('alert')).toHaveLength(2);
+        expect(title).toHaveAttribute('aria-invalid', 'true');
+        expect(content).toHaveAttribute('aria-invalid', 'true');
+        await actor.type(content, 'Unsaved body');
+      } else {
+        expect(screen.getByRole('alert')).toHaveTextContent('Could not save');
+      }
+      expect(screen.getByRole('status')).toHaveTextContent(`${content.value.length} characters`);
+      expect(localStorage.getItem('writespace_posts')).toBe(raw);
+    }
+
+    resetState(original);
+    await dirtyWithError();
+    await actor.click(screen.getByRole('link', { name: 'Edit second post' }));
+    resetState(second);
+    expect(screen.getByRole('link', { name: 'Cancel' })).toHaveAttribute('href', '/blog/p2');
+    await dirtyWithError();
+    await actor.click(screen.getByRole('link', { name: 'Start blank post' }));
+    resetState(null);
+    expect(screen.getByRole('heading', { name: 'Write a Blog' })).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Publish Blog' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Cancel' })).toHaveAttribute('href', '/blogs');
+    expect(write).toHaveBeenCalledTimes(failure === 'save failure' ? 2 : 0);
+    expect(remove).not.toHaveBeenCalled();
+  });
   it.each([owner, DEFAULT_ADMIN])('prefills and saves only text, preserving metadata for %j', async session => {
     const { actor } = mount('/edit/p1', session);
     expect(screen.getByRole('textbox', { name: 'Title' })).toHaveValue(original.title);

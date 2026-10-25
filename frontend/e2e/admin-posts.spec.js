@@ -154,6 +154,77 @@ test('Admin login, recent five, all-post older edit/read/save, return and any-au
   await durable(page, deleted, 'All Blogs');
 });
 
+test('Admin Write New Post quick action validates, publishes and reads a durable Admin-authored post', async ({ page }) => {
+  await seed(page);
+  await page.goto('/login');
+  expect(await records(page)).toEqual({ posts: rawPosts, users, session: null });
+  await page.getByLabel('Username', { exact: true }).fill('admin');
+  await page.getByLabel('Password', { exact: true }).fill('admin');
+  await page.getByRole('button', { name: 'Sign In', exact: true }).click();
+  await dashboard(page, posts);
+  const initial = { posts: rawPosts, users, session: admin };
+  expect(await records(page)).toEqual(initial);
+
+  await page.getByRole('region', { name: 'Quick Actions' })
+    .getByRole('link', { name: 'Write New Post', exact: true }).click();
+  await expect(page).toHaveURL(/\/write$/);
+  await expect(page.getByRole('heading', { level: 1, name: 'Write a Blog', exact: true })).toBeVisible();
+  const title = page.getByLabel('Title', { exact: true });
+  const content = page.getByLabel('Content', { exact: true });
+  const publish = page.getByRole('button', { name: 'Publish Blog', exact: true });
+  await expect(title).toHaveValue('');
+  await expect(content).toHaveValue('');
+  await expect(page.getByRole('status')).toHaveText('0 characters');
+  await publish.click();
+  await expect(page.getByRole('alert')).toHaveText(['Title is required.', 'Content is required.']);
+  await expect(title).toHaveAttribute('aria-invalid', 'true');
+  await expect(content).toHaveAttribute('aria-invalid', 'true');
+  await expect(page).toHaveURL(/\/write$/);
+  expect(await records(page)).toEqual(initial);
+
+  const draft = { title: 'Admin quick-action publication', content: 'Admin-authored first line\n<script>literal new post body</script>' };
+  await title.fill(draft.title);
+  await content.fill('   ');
+  await publish.click();
+  await expect(page.getByRole('alert')).toHaveText('Content is required.');
+  await expect(title).toHaveAttribute('aria-invalid', 'false');
+  await expect(content).toHaveValue('   ');
+  expect(await records(page)).toEqual(initial);
+  await content.fill(draft.content);
+  await expect(page.getByRole('status')).toHaveText(`${draft.content.length} characters`);
+  expect(await records(page)).toEqual(initial);
+  const beforeSave = await page.evaluate(() => Date.now());
+  await publish.click();
+  await expect(page).toHaveURL(/\/blog\/[^/]+$/);
+  await expect(page.getByRole('heading', { level: 1, name: draft.title, exact: true })).toBeVisible();
+
+  const saved = await records(page);
+  expect(saved.posts).toHaveLength(rawPosts.length + 1);
+  const created = saved.posts[rawPosts.length];
+  expect(created).toEqual({
+    ...draft, id: expect.stringMatching(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i),
+    createdAt: expect.any(String), authorId: admin.userId, authorName: admin.displayName,
+  });
+  expect(rawPosts.some(post => post?.id === created.id)).toBe(false);
+  expect(new Date(created.createdAt).toISOString()).toBe(created.createdAt);
+  expect(Date.parse(created.createdAt)).toBeGreaterThanOrEqual(beforeSave);
+  expect(Date.parse(created.createdAt)).toBeLessThanOrEqual(await page.evaluate(() => Date.now()));
+  const expected = { ...initial, posts: [...rawPosts, created] };
+  expect(saved).toEqual(expected);
+  await expect(page).toHaveURL(new RegExp(`/blog/${created.id}$`));
+  const article = page.getByRole('article');
+  await expect(article.locator('.whitespace-pre-wrap')).toHaveText(draft.content);
+  await expect(article.getByText(admin.displayName, { exact: true })).toBeVisible();
+  await expect(article.getByRole('img', { name: 'Admin avatar', exact: true })).toBeVisible();
+  await expect(article.locator('time')).toHaveAttribute('datetime', created.createdAt);
+  await expect(article.getByRole('link', { name: 'Edit', exact: true })).toHaveAttribute('href', `/edit/${created.id}`);
+  await expect(article.locator('script')).toHaveCount(0);
+  await expect(page.getByRole('alert')).toHaveCount(0);
+  await durable(page, expected, draft.title);
+  await expect(article.locator('.whitespace-pre-wrap')).toHaveText(draft.content);
+  await expect(article.locator('time')).toHaveAttribute('datetime', created.createdAt);
+});
+
 for (const session of [null, {
   userId: 'writer', username: 'writer', displayName: 'Writer', role: 'user',
 }]) {

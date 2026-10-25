@@ -133,7 +133,7 @@ test('guest collection entry is protected and its login home link returns to act
   await expect(page.getByRole('region', { name: 'Blog collection' })).toHaveCount(0);
   await page.getByRole('navigation', { name: 'Public navigation' }).getByRole('link', { name: 'WriteSpace' }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'WriteSpace' })).toBeVisible();
-  await expect(page.getByRole('region', { name: 'Latest from the Blog' }).getByRole('heading')).toHaveText([
+  await expect(page.getByRole('region', { name: 'Latest from the Blog' }).getByRole('heading', { level: 3 })).toHaveText([
     'A page to return to', 'A companion page', 'An earlier page',
   ]);
   expect((await stored(page)).session).toBeNull();

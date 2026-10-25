@@ -49,6 +49,36 @@ async function create(page, username, role) {
   await page.getByRole('button', { name: 'Create account', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('Account created');
   await expect(page.getByLabel('Display name', { exact: true })).toHaveValue('');
+  const saved = (await records(page)).users.find(account => account.username === username);
+  expect(saved).toMatchObject({ displayName: `${username} Writer`, username, role, password: 'demo-only' });
+  await accountMetadata(page, saved);
+}
+/** Assert each saved account in the layout actually visible in the inherited project. */
+async function accountMetadata(page, account, disabledReason = '') {
+  const table = page.getByRole('table');
+  const container = await table.isVisible()
+    ? table.getByRole('row').filter({ has: page.getByRole('button', { name: `Delete ${account.username}`, exact: true }) })
+    : page.getByRole('list', { name: 'Account cards' }).getByRole('listitem')
+      .filter({ has: page.getByRole('button', { name: `Delete ${account.username}`, exact: true }) });
+  await expect(container).toHaveCount(1);
+  await expect(container).toBeVisible();
+  for (const text of [account.displayName, account.username, account.role === 'admin' ? 'Admin' : 'User',
+    new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' })
+      .format(new Date(account.createdAt))]) {
+    await expect(container.getByText(text, { exact: true })).toBeVisible();
+  }
+  await expect(container.getByRole('img', { name: account.role === 'admin' ? 'Admin avatar' : 'User avatar', exact: true })).toBeVisible();
+  const button = container.getByRole('button', { name: `Delete ${account.username}`, exact: true });
+  if (disabledReason) {
+    await expect(button).toBeDisabled();
+    await expect(button).toHaveAttribute('title', disabledReason);
+    await expect(container.getByText(disabledReason, { exact: true })).toBeVisible();
+  } else {
+    await expect(button).toBeEnabled();
+    await expect(button).not.toHaveAttribute('title');
+    await expect(button).not.toHaveAttribute('aria-describedby');
+  }
+  await expect(container).not.toContainText(account.password);
 }
 /** Select the visible desktop row or equivalent mobile card by its delete action. */
 function deletion(page, username) {
@@ -75,6 +105,24 @@ async function records(page) {
     expect(new Date(account.createdAt).toISOString()).toBe(account.createdAt);
   }
   expect(saved.users.some(account => account.id === 'writespace-admin')).toBe(false);
+  expect(new Set(saved.users.map(account => account.id)).size).toBe(2);
+  const menu = page.getByRole('button', { name: 'Open menu', exact: true });
+  if (await menu.isVisible()) await menu.click();
+  await page.getByRole('navigation', { name: 'Account navigation' }).getByRole('link', { name: 'All Blogs', exact: true }).click();
+  await expect(page).toHaveURL(/\/blogs$/);
+  await expect(page.getByRole('heading', { name: 'All Blogs', exact: true })).toBeVisible();
+  const blogsMenu = page.getByRole('button', { name: 'Open menu', exact: true });
+  if (await blogsMenu.isVisible()) {
+    await blogsMenu.click();
+    await expect(page.getByRole('button', { name: 'Close menu', exact: true })).toHaveAttribute('aria-expanded', 'true');
+  }
+  await page.getByRole('navigation', { name: 'Account navigation' }).getByRole('link', { name: 'Users', exact: true }).click();
+  await expect(page).toHaveURL(/\/users$/);
+  await expect(page.getByRole('heading', { name: 'User Management', exact: true })).toBeVisible();
+  expect(await records(page)).toEqual(saved);
+  for (const account of saved.users) await accountMetadata(page, account);
+  await expect(deletion(page, 'admin')).toBeDisabled();
+  await expect(deletion(page, 'admin')).toHaveAttribute('title', 'Default admin cannot be deleted.');
   await expect(page.getByText('demo-only', { exact: true })).toHaveCount(0);
   await page.reload(); expect(await records(page)).toEqual(saved);
   await logout(page, 'Admin'); await login(page, 'reader-demo', 'demo-only');
@@ -87,6 +135,8 @@ async function records(page) {
   await expect(deletion(page, 'admin')).toHaveAttribute('title', 'Default admin cannot be deleted.');
   await expect(deletion(page, 'editor-demo')).toBeDisabled();
   await expect(deletion(page, 'editor-demo')).toHaveAttribute('title', 'Active accounts cannot be deleted.');
+  await accountMetadata(page, saved.users[0]);
+  await accountMetadata(page, saved.users[1], 'Active accounts cannot be deleted.');
   expect((await records(page)).users).toEqual(saved.users);
 });
 
