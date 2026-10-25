@@ -114,10 +114,18 @@ describe('public discovery', () => {
     const dashboard = within(nav).getByRole('link', { name: 'Go to Dashboard' });
     expect(dashboard).toHaveAttribute('href', role === 'admin' ? '/admin' : '/blogs');
     await user.click(dashboard);
-    expect(screen.getByRole('heading', { name: 'Page not found' })).toBeVisible();
+    expect(screen.getByRole('heading', {
+      level: 1, name: role === 'admin' ? 'Page not found' : 'All Blogs',
+    })).toBeVisible();
+    if (role === 'user') expect(screen.getByText('No blogs yet. Be the first to write one!')).toBeVisible();
     expect(JSON.parse(localStorage.getItem('writespace_session'))).toEqual(identity);
-    localStorage.removeItem('writespace_session');
-    await user.click(screen.getByRole('link', { name: 'Back to Home' }));
+    if (role === 'user') {
+      await user.click(within(screen.getByRole('navigation', { name: 'Account navigation' })).getByRole('button', { name: /Account for/ }));
+      await user.click(screen.getByRole('button', { name: 'Logout' }));
+    } else {
+      localStorage.removeItem('writespace_session');
+      await user.click(screen.getByRole('link', { name: 'Back to Home' }));
+    }
     expect(within(screen.getByRole('navigation', { name: 'Public navigation' })).getByRole('link', { name: 'Login' })).toBeVisible();
   });
 
@@ -172,7 +180,11 @@ describe('public discovery', () => {
     const preview = within(latest).getAllByRole('link')[0];
     expect(preview).toHaveAttribute('href', '/blog/newest');
     await user.click(preview);
-    expect(screen.getByRole('heading', { name: 'Page not found' })).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Welcome back' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Username' })).toBeVisible();
+    expect(screen.queryByText('A'.repeat(140))).not.toBeInTheDocument();
+    expect(localStorage.getItem('writespace_posts')).toBe(raw);
+    expect(localStorage.getItem('writespace_session')).toBeNull();
   });
 
   it('renders a single real post without invented additional previews', () => {

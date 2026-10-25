@@ -1,4 +1,4 @@
-/** Compose completed discovery and account-entry routes with local identity reads. */
+/** Compose completed discovery, account-entry, and reading routes with local identity reads. */
 import { Routes, Route, useLocation } from 'react-router-dom';
 import PublicNavbar from './components/PublicNavbar';
 import Navbar from './components/Navbar';
@@ -7,6 +7,9 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import NotFound from './pages/NotFound';
 import { getSession } from './utils/auth';
+import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home';
+import ReadBlog from './pages/ReadBlog';
 
 /**
  * Render discovery and a safe fallback with route-driven identity reads.
@@ -25,6 +28,14 @@ export default function App() {
         <Route path="/" element={<LandingPage session={session} />} />
         <Route path="/login" element={<LoginPage session={session} />} />
         <Route path="/register" element={<RegisterPage session={session} />} />
+        <Route
+          path="/blogs"
+          element={<ProtectedRoute session={session}><Home session={session} /></ProtectedRoute>}
+        />
+        <Route
+          path="/blog/:id"
+          element={<ProtectedRoute session={session}><ReadBlog session={session} /></ProtectedRoute>}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

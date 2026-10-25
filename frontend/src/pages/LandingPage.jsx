@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, PenNib, Desktop, Lightning } from '@phosphor-icons/react';
 import DemoNotice from '../components/DemoNotice';
+import BlogCard from '../components/BlogCard';
 import { getPosts } from '../utils/storage';
-import {
-  buttonStyles, dashboardHref, excerpt, focusRing, formatDate, headingFont, newestFirst, postAccents,
-} from '../utils/ui';
+import { buttonStyles, dashboardHref, focusRing, headingFont, newestFirst } from '../utils/ui';
 
 const features = [
   { title: 'Write Freely', Icon: PenNib, text: 'Plain-text writing, without distractions. Give your ideas room to breathe.' },
@@ -87,19 +86,7 @@ export default function LandingPage({ session = null }) {
           {previews.length ? (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {previews.map((post, index) => (
-                <article key={`${post.id}-${index}`} className={`rounded-xl border-t-4 bg-white ${postAccents[index]}`}>
-                  <Link
-                    to={`/blog/${encodeURIComponent(post.id)}`}
-                    className={`block h-full rounded-xl p-6 hover:bg-indigo-50 motion-safe:transition-colors ${focusRing}`}
-                  >
-                    <time dateTime={post.createdAt} className="text-sm text-slate-600">{formatDate(post.createdAt)}</time>
-                    <h3 className={`mt-3 break-words text-2xl text-slate-900 ${headingFont}`}>{post.title}</h3>
-                    <p className="mt-4 break-words leading-relaxed text-slate-600">{excerpt(post.content)}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-indigo-700">
-                      Read post <ArrowRight size={16} aria-hidden="true" />
-                    </span>
-                  </Link>
-                </article>
+                <BlogCard key={`${post.id}-${index}`} post={post} index={index} preview />
               ))}
             </div>
           ) : (
