@@ -113,19 +113,25 @@ describe('public discovery', () => {
     expect(screen.getByRole('link', { name: 'Start Reading' })).toHaveAttribute('href', '/blogs');
     const dashboard = within(nav).getByRole('link', { name: 'Go to Dashboard' });
     expect(dashboard).toHaveAttribute('href', role === 'admin' ? '/admin' : '/blogs');
+    const setter = vi.spyOn(Storage.prototype, 'setItem');
+    const remover = vi.spyOn(Storage.prototype, 'removeItem');
     await user.click(dashboard);
     expect(screen.getByRole('heading', {
-      level: 1, name: role === 'admin' ? 'Page not found' : 'All Blogs',
+      level: 1, name: role === 'admin' ? 'Admin Dashboard' : 'All Blogs',
     })).toBeVisible();
     if (role === 'user') expect(screen.getByText('No blogs yet. Be the first to write one!')).toBeVisible();
-    expect(JSON.parse(localStorage.getItem('writespace_session'))).toEqual(identity);
-    if (role === 'user') {
-      await user.click(within(screen.getByRole('navigation', { name: 'Account navigation' })).getByRole('button', { name: /Account for/ }));
-      await user.click(screen.getByRole('button', { name: 'Logout' }));
-    } else {
-      localStorage.removeItem('writespace_session');
-      await user.click(screen.getByRole('link', { name: 'Back to Home' }));
+    else {
+      expect(screen.getByRole('region', { name: 'Dashboard statistics' })).toBeVisible();
+      expect(screen.getByRole('region', { name: 'Recent Posts' })).toHaveTextContent('No posts yet.');
+      expect(screen.queryByRole('heading', { name: 'Page not found' })).not.toBeInTheDocument();
     }
+    expect(JSON.parse(localStorage.getItem('writespace_session'))).toEqual(identity);
+    expect(setter).not.toHaveBeenCalled();
+    expect(remover).not.toHaveBeenCalled();
+    expect(screen.queryByRole('button', { name: 'Logout' })).not.toBeInTheDocument();
+    const accountNav = within(screen.getByRole('navigation', { name: 'Account navigation' }));
+    await user.click(accountNav.getByRole('button', { name: /Account for/ }));
+    await user.click(screen.getByRole('button', { name: 'Logout' }));
     expect(within(screen.getByRole('navigation', { name: 'Public navigation' })).getByRole('link', { name: 'Login' })).toBeVisible();
   });
 

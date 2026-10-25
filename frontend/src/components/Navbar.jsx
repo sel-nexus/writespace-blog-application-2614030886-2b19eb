@@ -72,7 +72,12 @@ export default function Navbar({ session }) {
             <Link to="/blogs" className={buttonStyles.ghost}>All Blogs</Link>
             <Link to="/write" className={buttonStyles.ghost}>Write</Link>
             {session.role === 'admin' && (
-              <Link to="/users" className={buttonStyles.ghost}>Users</Link>
+              <>
+                <Link to="/admin" className={buttonStyles.ghost} aria-current={pathname === '/admin' ? 'page' : undefined}>
+                  Dashboard
+                </Link>
+                <Link to="/users" className={buttonStyles.ghost}>Users</Link>
+              </>
             )}
             <div className="relative" onKeyDown={event => { if (event.key === 'Escape') setAccountOpen(false); }}>
               <button
@@ -92,7 +97,9 @@ export default function Navbar({ session }) {
                   id="account-dropdown"
                   className="mt-2 flex flex-col gap-2 rounded-lg border border-slate-200 bg-white p-3 shadow-sm sm:absolute sm:right-0 sm:w-52"
                 >
-                  <Link to={dashboardHref(session)} className={buttonStyles.ghost}>Dashboard</Link>
+                  {session.role !== 'admin' && (
+                    <Link to={dashboardHref(session)} className={buttonStyles.ghost}>Dashboard</Link>
+                  )}
                   <button type="button" onClick={logout} className={buttonStyles.destructive}>
                     <SignOut size={20} aria-hidden="true" />
                     Logout
