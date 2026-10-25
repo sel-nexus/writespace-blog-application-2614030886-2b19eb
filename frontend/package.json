@@ -1,0 +1,12 @@
+{
+  "name": "writespace", "version": "1.0.0", "private": true, "type": "module",
+  "scripts": {
+    "dev": "node node_modules/vite/bin/vite.js",
+    "build": "node node_modules/vite/bin/vite.js build",
+    "preview": "node node_modules/vite/bin/vite.js preview",
+    "test": "node node_modules/vitest/vitest.mjs run",
+    "test:e2e": "node node_modules/@playwright/test/cli.js test"
+  },
+  "dependencies": {"react": "^18.2.0", "react-dom": "^18.2.0", "react-router-dom": "^6.20.0", "prop-types": "15.8.1", "@phosphor-icons/react": "2.1.7"},
+  "devDependencies": {"@vitejs/plugin-react": "^4.2.0", "vite": "^5.0.0", "tailwindcss": "^3.4.0", "postcss": "^8.4.0", "autoprefixer": "^10.4.0", "vitest": "2.1.9", "jsdom": "25.0.1", "@testing-library/react": "16.1.0", "@testing-library/jest-dom": "6.6.3", "@testing-library/user-event": "14.5.2", "@playwright/test": "1.48.2"}
+}
