@@ -65,6 +65,78 @@
       "_origin": "ast"
     },
     {
+      "id": "e2e_admin_accounts_spec",
+      "label": "admin-accounts.spec.js",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_seed",
+      "label": "seed()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_login",
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_users",
+      "label": "users()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_logout",
+      "label": "logout()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L35",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_create",
+      "label": "create()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L44",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_accountmetadata",
+      "label": "accountMetadata()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L57",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_deletion",
+      "label": "deletion()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L84",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_accounts_spec_records",
+      "label": "records()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L88",
+      "_origin": "ast"
+    },
+    {
       "id": "e2e_admin_posts_spec",
       "label": "admin-posts.spec.js",
       "file_type": "code",
@@ -575,6 +647,22 @@
       "community": 10
     },
     {
+      "id": "scripts_runtime_evidence",
+      "label": "runtime-evidence.mjs",
+      "file_type": "code",
+      "source_file": "frontend/scripts/runtime-evidence.mjs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_runtime_evidence_evidence",
+      "label": "evidence",
+      "file_type": "code",
+      "source_file": "frontend/scripts/runtime-evidence.mjs",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
       "id": "src_app",
       "label": "App.jsx",
       "file_type": "code",
@@ -588,7 +676,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "community": 3
     },
@@ -769,6 +857,22 @@
       "_origin": "ast"
     },
     {
+      "id": "components_userrow",
+      "label": "UserRow.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "components_userrow_userrow",
+      "label": "UserRow()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
       "id": "src_main",
       "label": "main.jsx",
       "file_type": "code",
@@ -911,6 +1015,38 @@
       "_origin": "ast"
     },
     {
+      "id": "pages_usermanagement",
+      "label": "UserManagement.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "pages_usermanagement_emptyform",
+      "label": "emptyForm",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "pages_usermanagement_accounts",
+      "label": "accounts()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "pages_usermanagement_usermanagement",
+      "label": "UserManagement()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
       "id": "pages_writeblog",
       "label": "WriteBlog.jsx",
       "file_type": "code",
@@ -987,7 +1123,63 @@
       "label": "login()",
       "file_type": "code",
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L115",
+      "source_location": "L118",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_adminusers",
+      "label": "adminUsers.js",
+      "file_type": "code",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_adminusers_labels",
+      "label": "labels",
+      "file_type": "code",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_adminusers_userdeletionreason",
+      "label": "userDeletionReason()",
+      "file_type": "code",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_adminusers_iscompleteuser",
+      "label": "isCompleteUser()",
+      "file_type": "code",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_adminusers_failure",
+      "label": "failure()",
+      "file_type": "code",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L47",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_adminusers_admincreateuser",
+      "label": "adminCreateUser()",
+      "file_type": "code",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L62",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_adminusers_admindeleteuser",
+      "label": "adminDeleteUser()",
+      "file_type": "code",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L124",
       "_origin": "ast"
     },
     {
@@ -1091,7 +1283,7 @@
       "label": "deletePost()",
       "file_type": "code",
       "source_file": "frontend/src/utils/posts.js",
-      "source_location": "L140",
+      "source_location": "L141",
       "_origin": "ast"
     },
     {
@@ -1269,7 +1461,7 @@
       "label": "input",
       "file_type": "code",
       "source_file": "frontend/tests/accountEntry.test.js",
-      "source_location": "L8",
+      "source_location": "L10",
       "_origin": "ast"
     },
     {
@@ -1277,7 +1469,7 @@
       "label": "previous",
       "file_type": "code",
       "source_file": "frontend/tests/accountEntry.test.js",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast"
     },
     {
@@ -1285,7 +1477,7 @@
       "label": "user",
       "file_type": "code",
       "source_file": "frontend/tests/accountEntry.test.js",
-      "source_location": "L10",
+      "source_location": "L12",
       "_origin": "ast"
     },
     {
@@ -1358,6 +1550,70 @@
       "file_type": "code",
       "source_file": "frontend/tests/accountEntry.test.jsx",
       "source_location": "L61",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test",
+      "label": "adminAccounts.test.jsx",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test_seen",
+      "label": "seen",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test_record",
+      "label": "record",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test_otheradmin",
+      "label": "otherAdmin",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L21",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test_mount",
+      "label": "mount()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test_fill",
+      "label": "fill()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L35",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test_remove",
+      "label": "remove()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminaccounts_test_failed",
+      "label": "failed()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L44",
       "_origin": "ast"
     },
     {
@@ -1438,6 +1694,54 @@
       "file_type": "code",
       "source_file": "frontend/tests/adminPosts.test.jsx",
       "source_location": "L68",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminusers_test",
+      "label": "adminUsers.test.js",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminusers_test_input",
+      "label": "input",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminusers_test_account",
+      "label": "account",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminusers_test_boundaries",
+      "label": "boundaries",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminusers_test_badvalues",
+      "label": "badValues",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminusers_test_rejected",
+      "label": "rejected()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L16",
       "_origin": "ast"
     },
     {
@@ -1725,7 +2029,7 @@
       "label": "owner",
       "file_type": "code",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "_origin": "ast"
     },
     {
@@ -1733,7 +2037,7 @@
       "label": "other",
       "file_type": "code",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast"
     },
     {
@@ -1741,7 +2045,7 @@
       "label": "original",
       "file_type": "code",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast"
     },
     {
@@ -1749,7 +2053,7 @@
       "label": "remaining",
       "file_type": "code",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast"
     },
     {
@@ -1757,7 +2061,7 @@
       "label": "mount()",
       "file_type": "code",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast"
     },
     {
@@ -1765,7 +2069,7 @@
       "label": "fill()",
       "file_type": "code",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast"
     },
     {
@@ -1773,7 +2077,23 @@
       "label": "detail()",
       "file_type": "code",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L40",
+      "source_location": "L41",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_writing_test_resetstate",
+      "label": "resetState()",
+      "file_type": "code",
+      "source_file": "frontend/tests/writing.test.jsx",
+      "source_location": "L173",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_writing_test_dirtywitherror",
+      "label": "dirtyWithError()",
+      "file_type": "code",
+      "source_file": "frontend/tests/writing.test.jsx",
+      "source_location": "L191",
       "_origin": "ast"
     },
     {
@@ -1905,6 +2225,128 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/e2e/account-entry.spec.js",
       "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_fixtures",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_fixtures_test",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_seed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_login",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_users",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_logout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_create",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_accountmetadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_deletion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec",
+      "target": "e2e_admin_accounts_spec_records",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec_logout",
+      "target": "e2e_admin_accounts_spec_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec_create",
+      "target": "e2e_admin_accounts_spec_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_accounts_spec_create",
+      "target": "e2e_admin_accounts_spec_accountmetadata",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-accounts.spec.js",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -2467,6 +2909,15 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_runtime_evidence",
+      "target": "scripts_runtime_evidence_evidence",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/scripts/runtime-evidence.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "src_app",
       "target": "components_publicnavbar",
       "relation": "imports_from",
@@ -2608,11 +3059,21 @@
     },
     {
       "source": "src_app",
+      "target": "pages_usermanagement",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
       "target": "src_app_app",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -3031,6 +3492,55 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/StatCard.jsx",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "components_userrow",
+      "target": "components_avatar",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "components_userrow",
+      "target": "utils_ui",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_userrow",
+      "target": "utils_ui_buttonstyles",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_userrow",
+      "target": "utils_ui_formatdate",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_userrow",
+      "target": "components_userrow_userrow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -3715,6 +4225,193 @@
       "weight": 1.0
     },
     {
+      "source": "pages_usermanagement",
+      "target": "components_formfield",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "components_userrow",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_accountentry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_accountentry_default_admin",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_auth_getsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_adminusers",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_adminusers_admincreateuser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_adminusers_admindeleteuser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_adminusers_iscompleteuser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_adminusers_userdeletionreason",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_ui",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_ui_buttonstyles",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "utils_ui_issession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "pages_usermanagement_emptyform",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "pages_usermanagement_accounts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "pages_usermanagement_usermanagement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
       "source": "pages_writeblog",
       "target": "components_formfield",
       "relation": "imports_from",
@@ -3983,7 +4680,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L115",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -4013,7 +4710,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L102",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -4023,7 +4720,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L102",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -4033,7 +4730,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L117",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -4043,7 +4740,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L119",
+      "source_location": "L122",
       "weight": 1.0
     },
     {
@@ -4053,7 +4750,181 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L123",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_storage_saveusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_auth_getsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_accountentry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_accountentry_default_admin",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_ui",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_ui_issession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_adminusers_labels",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_adminusers_userdeletionreason",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_adminusers_iscompleteuser",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_adminusers_failure",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_adminusers_admincreateuser",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers",
+      "target": "utils_adminusers_admindeleteuser",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers_admincreateuser",
+      "target": "utils_adminusers_failure",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers_admindeleteuser",
+      "target": "utils_adminusers_failure",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers_admindeleteuser",
+      "target": "utils_adminusers_iscompleteuser",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -4252,7 +5123,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/posts.js",
-      "source_location": "L140",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -4352,7 +5223,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/posts.js",
-      "source_location": "L141",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -4362,7 +5233,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/posts.js",
-      "source_location": "L146",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -4372,7 +5243,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/utils/posts.js",
-      "source_location": "L147",
+      "source_location": "L151",
       "weight": 1.0
     },
     {
@@ -4656,7 +5527,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/accountEntry.test.js",
-      "source_location": "L8",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -4665,7 +5536,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/accountEntry.test.js",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -4674,7 +5545,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/accountEntry.test.js",
-      "source_location": "L10",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -4900,6 +5771,219 @@
       "weight": 1.0
     },
     {
+      "source": "tests_adminaccounts_test",
+      "target": "src_app",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_accountentry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_accountentry_default_admin",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_accountentry_registeruser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_adminusers",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_adminusers_admincreateuser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "components_navbar",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "components_userrow",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "components_userrow_userrow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_auth_getsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_auth_setsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "utils_storage_saveusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "tests_adminaccounts_test_seen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "tests_adminaccounts_test_record",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "tests_adminaccounts_test_otheradmin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "tests_adminaccounts_test_mount",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "tests_adminaccounts_test_fill",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "tests_adminaccounts_test_remove",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "tests_adminaccounts_test_failed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
       "source": "tests_adminposts_test",
       "target": "src_app",
       "relation": "imports_from",
@@ -5108,6 +6192,181 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/adminPosts.test.jsx",
       "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_adminusers",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_adminusers_admincreateuser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_adminusers_admindeleteuser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_adminusers_iscompleteuser",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_adminusers_userdeletionreason",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_accountentry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_accountentry_default_admin",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_auth_getsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_auth_setsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "utils_storage_saveusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "tests_adminusers_test_input",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "tests_adminusers_test_account",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "tests_adminusers_test_boundaries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "tests_adminusers_test_badvalues",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminusers_test",
+      "target": "tests_adminusers_test_rejected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -5826,12 +7085,22 @@
     },
     {
       "source": "tests_writing_test",
-      "target": "utils_accountentry",
+      "target": "pages_writeblog",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
       "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_writing_test",
+      "target": "utils_accountentry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/writing.test.jsx",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -5841,7 +7110,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -5851,7 +7120,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -5861,7 +7130,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -5871,7 +7140,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -5881,7 +7150,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -5891,7 +7160,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -5900,7 +7169,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -5909,7 +7178,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -5918,7 +7187,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -5927,7 +7196,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -5936,7 +7205,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -5945,7 +7214,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -5954,7 +7223,25 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L40",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_writing_test",
+      "target": "tests_writing_test_resetstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/writing.test.jsx",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_writing_test",
+      "target": "tests_writing_test_dirtywitherror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/writing.test.jsx",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -6097,6 +7384,16 @@
       "weight": 1.0
     },
     {
+      "source": "src_app",
+      "target": "pages_usermanagement_usermanagement",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
       "source": "components_blogcard",
       "target": "components_avatar_avatar",
       "relation": "imports",
@@ -6124,6 +7421,16 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/PublicNavbar.jsx",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "components_userrow",
+      "target": "components_avatar_avatar",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -6227,6 +7534,26 @@
       "weight": 1.0
     },
     {
+      "source": "pages_usermanagement",
+      "target": "components_formfield_formfield",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement",
+      "target": "components_userrow_userrow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "pages_writeblog",
       "target": "components_formfield_formfield",
       "relation": "imports",
@@ -6304,6 +7631,26 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/accountEntry.test.jsx",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "src_app_app",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test",
+      "target": "components_navbar_navbar",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -6387,6 +7734,26 @@
       "weight": 1.0
     },
     {
+      "source": "tests_writing_test",
+      "target": "pages_writeblog_writeblog",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/writing.test.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_usermanagement_accounts",
+      "target": "utils_storage_getusers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
       "source": "utils_accountentry_signin",
       "target": "utils_auth_setsession",
       "relation": "calls",
@@ -6414,6 +7781,26 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/accountEntry.test.jsx",
       "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test_mount",
+      "target": "utils_storage_saveusers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminaccounts_test_mount",
+      "target": "utils_auth_setsession",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminAccounts.test.jsx",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -6467,6 +7854,16 @@
       "weight": 1.0
     },
     {
+      "source": "tests_adminusers_test_rejected",
+      "target": "utils_auth_getsession",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminUsers.test.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
       "source": "tests_posts_test_rejected",
       "target": "utils_storage_getposts",
       "relation": "calls",
@@ -6513,7 +7910,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -6523,7 +7920,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/writing.test.jsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -6534,7 +7931,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -6634,6 +8031,17 @@
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/PublicNavbar.jsx",
       "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "components_userrow_userrow",
+      "target": "utils_ui_formatdate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -6820,7 +8228,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L99",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -6831,7 +8239,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/utils/accountEntry.js",
-      "source_location": "L120",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers_admincreateuser",
+      "target": "utils_ui_issession",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_adminusers_admindeleteuser",
+      "target": "utils_ui_issession",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/utils/adminUsers.js",
+      "source_location": "L125",
       "weight": 1.0
     },
     {
@@ -6908,15 +8338,26 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/utils/posts.js",
-      "source_location": "L142",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_writing_test_resetstate",
+      "target": "utils_storage_getposts",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/tests/writing.test.jsx",
+      "source_location": "L187",
       "weight": 1.0
     }
   ],
   "metadata": {
-    "built_at": "2026-10-25T16:52:18.272977+00:00",
+    "built_at": "2026-10-25T17:19:37.536594+00:00",
     "version": "graph_update-v1",
     "codebase_root": "/data/artifacts-v2/T011RNFvLqRR0008725102614030886/developer",
     "force": true,
-    "files_scanned": 49
+    "files_scanned": 57
   }
 }
