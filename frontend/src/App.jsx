@@ -13,6 +13,7 @@ import ReadBlog from './pages/ReadBlog';
 import WriteBlog from './pages/WriteBlog';
 import AdminRoute from './components/AdminRoute';
 import AdminDashboard from './pages/AdminDashboard';
+import UserManagement from './pages/UserManagement';
 
 /**
  * Render discovery and a safe fallback with route-driven identity reads.
@@ -52,6 +53,14 @@ export default function App() {
           element={
             <AdminRoute session={session}>
               <AdminDashboard />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <AdminRoute session={session}>
+              <UserManagement />
             </AdminRoute>
           }
         />

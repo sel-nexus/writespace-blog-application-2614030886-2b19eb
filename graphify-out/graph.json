@@ -65,6 +65,94 @@
       "_origin": "ast"
     },
     {
+      "id": "e2e_admin_posts_spec",
+      "label": "admin-posts.spec.js",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_users",
+      "label": "users",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_admin",
+      "label": "admin",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_posts",
+      "label": "posts",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_rawposts",
+      "label": "rawPosts",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_seed",
+      "label": "seed()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L21",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_records",
+      "label": "records()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L32",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_opennavigation",
+      "label": "openNavigation()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L41",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_dashboard",
+      "label": "dashboard()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L47",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_durable",
+      "label": "durable()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L67",
+      "_origin": "ast"
+    },
+    {
+      "id": "e2e_admin_posts_spec_recentrow",
+      "label": "recentRow()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L75",
+      "_origin": "ast"
+    },
+    {
       "id": "e2e_discovery_spec",
       "label": "discovery.spec.js",
       "file_type": "code",
@@ -500,7 +588,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L22",
+      "source_location": "L24",
       "_origin": "ast",
       "community": 3
     },
@@ -665,6 +753,22 @@
       "community": 1
     },
     {
+      "id": "components_statcard",
+      "label": "StatCard.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/StatCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "components_statcard_statcard",
+      "label": "StatCard()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/StatCard.jsx",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
       "id": "src_main",
       "label": "main.jsx",
       "file_type": "code",
@@ -672,6 +776,30 @@
       "source_location": "L1",
       "_origin": "ast",
       "community": 3
+    },
+    {
+      "id": "pages_admindashboard",
+      "label": "AdminDashboard.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "pages_admindashboard_iscompleteaccount",
+      "label": "isCompleteAccount()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "pages_admindashboard_admindashboard",
+      "label": "AdminDashboard()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L35",
+      "_origin": "ast"
     },
     {
       "id": "pages_home",
@@ -1233,6 +1361,86 @@
       "_origin": "ast"
     },
     {
+      "id": "tests_adminposts_test",
+      "label": "adminPosts.test.jsx",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_writer",
+      "label": "writer",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_account",
+      "label": "account",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_post",
+      "label": "post()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_mount",
+      "label": "mount()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L31",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_seed",
+      "label": "seed()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_metric",
+      "label": "metric()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L50",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_row",
+      "label": "row()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L56",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_records",
+      "label": "records()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L61",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_adminposts_test_retained",
+      "label": "retained()",
+      "file_type": "code",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L68",
+      "_origin": "ast"
+    },
+    {
       "id": "tests_auth_test",
       "label": "auth.test.js",
       "file_type": "code",
@@ -1697,6 +1905,126 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/e2e/account-entry.spec.js",
       "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_fixtures",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_fixtures_test",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_users",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_admin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_posts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_rawposts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_seed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_records",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_opennavigation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_dashboard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_durable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec",
+      "target": "e2e_admin_posts_spec_recentrow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "e2e_admin_posts_spec_durable",
+      "target": "e2e_admin_posts_spec_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-posts.spec.js",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -2260,11 +2588,31 @@
     },
     {
       "source": "src_app",
+      "target": "components_adminroute",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "pages_admindashboard",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
       "target": "src_app_app",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L22",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -2677,6 +3025,15 @@
       "weight": 1.0
     },
     {
+      "source": "components_statcard",
+      "target": "components_statcard_statcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/StatCard.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
       "source": "src_main",
       "target": "src_app",
       "relation": "imports_from",
@@ -2684,6 +3041,154 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/main.jsx",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "components_statcard",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_storage_getposts",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_auth_getsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_posts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_posts_deletepost",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_ui",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_ui_buttonstyles",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_ui_formatdate",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_ui_issession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "utils_ui_newestfirst",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "pages_admindashboard_iscompleteaccount",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "pages_admindashboard_admindashboard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -4395,6 +4900,217 @@
       "weight": 1.0
     },
     {
+      "source": "tests_adminposts_test",
+      "target": "src_app",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "components_statcard",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "components_statcard_statcard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_accountentry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_accountentry_default_admin",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_auth_setsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_storage_getposts",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_storage_saveposts",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "utils_storage_saveusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_writer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_account",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_post",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_mount",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_seed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_metric",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_row",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_records",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test",
+      "target": "tests_adminposts_test_retained",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test_retained",
+      "target": "tests_adminposts_test_row",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
       "source": "tests_auth_test",
       "target": "utils_auth",
       "relation": "imports_from",
@@ -5361,6 +6077,26 @@
       "weight": 1.0
     },
     {
+      "source": "src_app",
+      "target": "components_adminroute_adminroute",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app",
+      "target": "pages_admindashboard_admindashboard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
       "source": "components_blogcard",
       "target": "components_avatar_avatar",
       "relation": "imports",
@@ -5397,6 +6133,16 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/main.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard",
+      "target": "components_statcard_statcard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
       "source_location": "L5",
       "weight": 1.0
     },
@@ -5561,6 +6307,16 @@
       "weight": 1.0
     },
     {
+      "source": "tests_adminposts_test",
+      "target": "src_app_app",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "tests_discovery_test",
       "target": "src_app_app",
       "relation": "imports",
@@ -5661,6 +6417,56 @@
       "weight": 1.0
     },
     {
+      "source": "tests_adminposts_test_seed",
+      "target": "utils_storage_saveposts",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test_seed",
+      "target": "utils_storage_saveusers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test_seed",
+      "target": "utils_auth_setsession",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test_records",
+      "target": "utils_storage_getposts",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_adminposts_test_records",
+      "target": "utils_storage_getusers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/adminPosts.test.jsx",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
       "source": "tests_posts_test_rejected",
       "target": "utils_storage_getposts",
       "relation": "calls",
@@ -5728,7 +6534,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -5828,6 +6634,17 @@
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/PublicNavbar.jsx",
       "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "pages_admindashboard_admindashboard",
+      "target": "utils_storage_getusers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -6096,10 +6913,10 @@
     }
   ],
   "metadata": {
-    "built_at": "2026-10-25T16:45:20.590583+00:00",
+    "built_at": "2026-10-25T16:52:18.272977+00:00",
     "version": "graph_update-v1",
     "codebase_root": "/data/artifacts-v2/T011RNFvLqRR0008725102614030886/developer",
     "force": true,
-    "files_scanned": 45
+    "files_scanned": 49
   }
 }
